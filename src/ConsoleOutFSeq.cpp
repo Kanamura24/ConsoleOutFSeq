@@ -106,12 +106,19 @@ RTC::ReturnCode_t ConsoleOutFSeq::onDeactivated(RTC::UniqueId ec_id)
   return RTC::RTC_OK;
 }
 
-/*
+
 RTC::ReturnCode_t ConsoleOutFSeq::onExecute(RTC::UniqueId ec_id)
 {
+  if(m_inIn.isNew()) {
+    m_inIn.read();
+    std::cout << m_in.data.length() << " datas received." << std::endl;
+    for(int i = 0;i < m_in.data.length();i++) {
+      std::cout << "Data is " << m_in.data[i] << std::endl;
+    }
+  }
   return RTC::RTC_OK;
 }
-*/
+
 
 /*
 RTC::ReturnCode_t ConsoleOutFSeq::onAborting(RTC::UniqueId ec_id)
